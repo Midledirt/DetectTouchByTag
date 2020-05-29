@@ -12,6 +12,10 @@ public class scrDetectTouchByTag : MonoBehaviour
     //Edit this touchphase to alter which touchphase is used for the check
     TouchPhase editableTouchphase = TouchPhase.Ended;
 
+    public bool touchedCylinder;
+    public bool touchedSquare;
+    public bool touchedCircle;
+
     void Update()
     {
         //Check for finger touches, take the first touch (GetTouch(0))and check its status.
@@ -39,15 +43,21 @@ public class scrDetectTouchByTag : MonoBehaviour
                 //Make the touched object respond
                 if (touchedObject.tag == "Circle")
                 {
-                    print("hit a circle");
+                    StartCoroutine(resetTouch());
+                    touchedCircle = true;
+                    //print("hit a circle");
                 }
                 else if (touchedObject.tag == "Square")
                 {
-                    print("hit a square");
+                    StartCoroutine(resetTouch());
+                    touchedSquare = true;
+                    //print("hit a square");
                 }
                 else if (touchedObject.tag == "Cylinder")
                 {
-                    print("hit a cylinder");
+                    touchedCylinder = true;
+                    StartCoroutine(resetTouch());
+                    //print("hit a cylinder");
                 }
                 else
                 {
@@ -58,6 +68,15 @@ public class scrDetectTouchByTag : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator resetTouch()
+    {
+        //Reset bools to false
+        yield return new WaitForSeconds(0.1f);
+        touchedCylinder = false;
+        touchedCircle = false;
+        touchedSquare = false;
     }
 
 }
