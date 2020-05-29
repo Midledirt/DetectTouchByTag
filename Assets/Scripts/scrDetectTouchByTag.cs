@@ -6,7 +6,7 @@ public class scrDetectTouchByTag : MonoBehaviour
 {
     Vector3 touchPositionWorld;
 
-    //The game object we touch
+    //Touched object
     public GameObject touchedObject;
 
     //Edit this touchphase to alter which touchphase is used for the check
@@ -23,9 +23,43 @@ public class scrDetectTouchByTag : MonoBehaviour
             //And store it as a vector2!
             Vector2 touchPositionWOrld2D = new Vector2(touchPositionWorld.x, touchPositionWorld.y);
 
+            //Make a list of colliders whenever colliders are touched
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(touchPositionWOrld2D, .1f);
+
+            foreach (var col in colliders)
+            {
+
+                //If we hit something, store information of the gameobject into the variable "touchedObject".
+                touchedObject = col.gameObject;
+                //print(touchedObject.name + " touched");
+
+                //Prints the name of the object touched
+                //print("Touched" + touchedObject.transform.name);
+
+                //Make the touched object respond
+                if (touchedObject.tag == "Circle")
+                {
+                    print("hit a circle");
+                }
+                else if (touchedObject.tag == "Square")
+                {
+                    print("hit a square");
+                }
+                else if (touchedObject.tag == "Cylinder")
+                {
+                    print("hit a cylinder");
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
         }
 
     }
 
-} 
+}
+
 

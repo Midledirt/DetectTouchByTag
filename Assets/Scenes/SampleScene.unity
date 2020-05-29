@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7a11591a8befa4cbc2db8aee485375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchedObject: {fileID: 0}
 --- !u!4 &225250340
 Transform:
   m_ObjectHideFlags: 0
@@ -270,7 +271,7 @@ GameObject:
   - component: {fileID: 809902851}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -449,7 +450,7 @@ GameObject:
   - component: {fileID: 1031316669}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Cylinder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +546,7 @@ GameObject:
   - component: {fileID: 2127326152}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Square
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
