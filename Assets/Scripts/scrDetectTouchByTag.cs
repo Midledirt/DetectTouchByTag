@@ -7,7 +7,7 @@ public class scrDetectTouchByTag : MonoBehaviour
     Vector3 touchPositionWorld;
 
     //Touched object
-    public GameObject touchedObject;
+    private GameObject touchedObject;
 
     //Edit this touchphase to alter which touchphase is used for the check
     TouchPhase editableTouchphase = TouchPhase.Ended;
@@ -16,6 +16,12 @@ public class scrDetectTouchByTag : MonoBehaviour
     public bool touchedSquare;
     public bool touchedCircle;
 
+    private void Start()
+    {
+        touchedSquare = false;
+        touchedCylinder = false;
+        touchedCircle = false;
+    }
     void Update()
     {
         //Check for finger touches, take the first touch (GetTouch(0))and check its status.
