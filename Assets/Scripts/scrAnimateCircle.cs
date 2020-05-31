@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class scrAnimateCircle : MonoBehaviour
 {
+    [Tooltip("Put the object that is animated into this slot")]
     public Animator localAnimator;
 
-    [Tooltip("Put the oGame object (or whatever object contains the scrDetectTouchByTag) in this slot")]
-    public scrDetectTouchByTag scrDetectTouch;
+    [HideInInspector]
+    public bool isTouched;
 
     private void Update()
     {
-        if (scrDetectTouch.touchedCircle == true)
+        //Any code could be ran here, not just this animation that happens to be identical to the other scripts. In a game or app, this could play sounds, 
+        //completely differnet animations etc...
+        if (isTouched == true)
         {
             //Animate
             localAnimator.SetBool("isTouched", true);
+
+            isTouched = false;
         }
-        else if (scrDetectTouch.touchedCircle == false)
+        else if (isTouched == false)
         {
             //Ënd animation
             localAnimator.SetBool("isTouched", false);

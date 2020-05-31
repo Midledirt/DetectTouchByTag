@@ -12,8 +12,11 @@ public class scrDetectTouchByTag : MonoBehaviour
     //Edit this touchphase to alter which touchphase is used for the check
     TouchPhase editableTouchphase = TouchPhase.Ended;
 
+    [HideInInspector]
     public bool touchedCylinder;
+    [HideInInspector]
     public bool touchedSquare;
+    [HideInInspector]
     public bool touchedCircle;
 
     private void Start()
@@ -49,20 +52,23 @@ public class scrDetectTouchByTag : MonoBehaviour
                 //Make the touched object respond
                 if (touchedObject.tag == "Circle")
                 {
-                    StartCoroutine(resetTouch());
-                    touchedCircle = true;
+                    //StartCoroutine(resetTouch());
+                    touchedObject.GetComponent<scrAnimateCircle>().isTouched = true;
+                    //touchedCircle = true;
                     //print("hit a circle");
                 }
                 else if (touchedObject.tag == "Square")
                 {
-                    StartCoroutine(resetTouch());
-                    touchedSquare = true;
+                    //StartCoroutine(resetTouch());
+                    touchedObject.GetComponent<scrAnimateSquare>().isTouched = true;
+                    //touchedSquare = true;
                     //print("hit a square");
                 }
                 else if (touchedObject.tag == "Cylinder")
                 {
-                    touchedCylinder = true;
-                    StartCoroutine(resetTouch());
+                    //touchedCylinder = true;
+                    touchedObject.GetComponent<scrAnimateCylinder>().isTouched = true;
+                    //StartCoroutine(resetTouch());
                     //print("hit a cylinder");
                 }
                 else
@@ -76,14 +82,14 @@ public class scrDetectTouchByTag : MonoBehaviour
 
     }
 
-    IEnumerator resetTouch()
+    /*IEnumerator resetTouch()
     {
         //Reset bools to false
         yield return new WaitForSeconds(0.1f);
         touchedCylinder = false;
         touchedCircle = false;
         touchedSquare = false;
-    }
+    }*/
 
 }
 
